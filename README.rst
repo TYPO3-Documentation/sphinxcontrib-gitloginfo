@@ -5,7 +5,7 @@ sphinxcontrib-gitloginfo
 .. image:: https://travis-ci.org/gitloginfo/sphinxcontrib-gitloginfo.svg?branch=master
    :target: https://travis-ci.org/TYPO3-Documentation/sphinxcontrib-gitloginfo
 
-Provide properties obtained from git log
+Sphinx-doc extension that provides info obtained from git log in the page rendering context.
 
 
 Overview
