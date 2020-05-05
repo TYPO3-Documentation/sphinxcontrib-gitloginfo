@@ -124,3 +124,14 @@ Use these values in the Jinja2 html templates:
 `{{ t3ctx.last_modified }}`,
 `{{ t3ctx.last_modified_isoformat }}`,
 `{{ t3ctx.commit_url }}`.
+
+
+Development
+===========
+
+The initial skeleton of this package was created with cookiecutter and
+make use of `pbr`::
+
+   cookiecutter https://github.com/sphinx-contrib/cookiecutter
+
+See branch 'using-pbr'.
