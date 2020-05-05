@@ -2,16 +2,15 @@
 sphinxcontrib-gitloginfo
 ========================
 
-.. image:: https://travis-ci.org/gitloginfo/sphinxcontrib-gitloginfo.svg?branch=master
-   :target: https://travis-ci.org/TYPO3-Documentation/sphinxcontrib-gitloginfo
-
-Sphinx-doc extension that provides info obtained from git log in the page rendering context.
+ATTENTION • work in progress • ATTENTION • WIP •
+ATTENTION • work in progress • ATTENTION • WIP •
+ATTENTION • work in progress • ATTENTION • WIP …
 
 
 Overview
 ========
 
-...
+Sphinx-doc extension that provides info obtained from git log in the page rendering context.
 
 
 Links
@@ -130,8 +129,13 @@ Development
 ===========
 
 The initial skeleton of this package was created with cookiecutter and
-make use of `pbr`::
+makes use of `pbr`::
 
    cookiecutter https://github.com/sphinx-contrib/cookiecutter
 
-See branch 'using-pbr'.
+This version is kept in branch 'using-pbr'.
+
+Install for local development:
+
+#. Create a virtual Python environment
+#. pip install -r requirements.txt -r requirements-dev.txt -r requirements-test.txt
