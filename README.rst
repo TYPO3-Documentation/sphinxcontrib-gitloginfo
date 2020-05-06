@@ -25,6 +25,13 @@ License
 
 MIT license
 
+Download and installation
+=========================
+
+::
+
+   pip install sphinxcontrib-gitloginfo
+
 
 Details
 =======
@@ -138,22 +145,7 @@ git-restore-mtime/example-gitloginfo.json
    This is how the output file should look like.
 
 
-Usage
-=====
-
-Add `sphinxcontrib.gitloginfo` to the list of extensions to be loaded in
-the `conf.py` file of your Sphinx project and specify the desired date and time
-format::
-
-   extensions = ['sphinxcontrib.gitloginfo', …]
-   html_last_updated_fmt = '%b %d, %Y %H:%M'
-
-
-Use these values in the Jinja2 html templates:
-`{{ t3ctx.commit_hash }}`,
-`{{ t3ctx.last_modified }}`,
-`{{ t3ctx.last_modified_isoformat }}`,
-`{{ t3ctx.commit_url }}`.
+.. include:: USAGE.rst
 
 
 Development
@@ -166,7 +158,6 @@ makes use of `pbr`::
 
 This version is kept in branch 'using-pbr'.
 
-Install for local development:
+We then dropped the use of pbr and switched to a more regular `setup.py`
+configuration.
 
-#. Create a virtual Python environment
-#. pip install -r requirements.txt -r requirements-dev.txt -r requirements-test.txt
