@@ -29,6 +29,8 @@ MIT license
 Details
 =======
 
+((WIP - to be improved))
+
 `confdir` is the path to the folder that contains the `conf.py` configuration
 file.
 
@@ -105,6 +107,35 @@ If available these values will be added to the Jinja2 page rendering context::
    t3ctx['last_modified']
    t3ctx['last_modified_isoformat']
    t3ctx['commit_url']
+
+
+How to generate 'gitloginfo.json'
+=================================
+
+Creating the 'gitloginfo.json' file is not part of the extension. This
+reduces complexity and helps speeding up Git operations.
+`git-restore-mtime
+<https://github.com/MestreLion/git-tools/blob/master/git-restore-mtime>`_ is a
+tool that almost does what we need. It is distributed under the GPL license.
+Please see the initial comments in the code in folder `git-restore-mtime` in
+this repository.
+
+git-restore-mtime/git-restore-mtime-ORIGINAL.py
+   This is the original file:
+   `git-restore-mtime/git-restore-mtime-ORIGINAL.py
+   <https://github.com/MestreLion/git-tools/commit/f3cc70b73200154d027554714c354f35a08680ed>`__
+
+git-restore-mtime/git-restore-mtime-modified.py
+   Run the modified version like so. `--test` prevents files from actually
+   getting the mtime value set. Instead, we are only looking for the output::
+
+      cd path/to/repo/and/project/therein
+      python git-restore-mtime-modified \
+         --test
+         --destfile-gitloginfo=path/to/temp-gitloginfo.json
+
+git-restore-mtime/example-gitloginfo.json
+   This is how the output file should look like.
 
 
 Usage
