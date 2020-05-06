@@ -11,13 +11,12 @@
 import datetime
 import io
 import json
-import pbr.version
 import sys
 
 from os.path import exists as ospe, join as ospj
 from sphinx.util import i18n, logging
+from sphinxcontrib.gitloginfo.version import __version__
 
-__version__ = pbr.version.VersionInfo('gitloginfo').version_string()
 log = logging.getLogger(__name__)
 PY2 = sys.version_info[0] == 2
 wd = workdata = {}
@@ -55,7 +54,10 @@ def _html_page_context(app, pagename, templatename, context, doctree):
     timestamp = v[0]
     commit_hash = v[1]
     if timestamp is None:
+        log.info("%s :: not found" % (pagename_as_repofile,))
         return
+    else:
+        log.info("%s :: found" % (pagename_as_repofile,))
     last_modified_dt = datetime.datetime.fromtimestamp(timestamp, utc_tzinfo)
     last_modified = i18n.format_date(wd['html_last_updated_fmt'],
                                      date=last_modified_dt,
