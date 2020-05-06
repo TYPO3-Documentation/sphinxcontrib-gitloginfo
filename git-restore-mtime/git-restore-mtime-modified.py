@@ -1,4 +1,4 @@
-#!/home/marble/Repositories/mbnas/mbgit/t3docs-running-tct/.venv/bin/python2.7
+#! /usr/bin/env python
 # coding: utf-8
 #
 # git-restore-mtime - Change mtime of files based on commit date of last change
