@@ -450,8 +450,9 @@ try:
     exitcode = main()
     if not exitcode and args.gitloginfo:
         #https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-        with io.open(args.gitloginfo, 'wb') as jsonfile:
-            log.info("Creating gigloginfo file: '%s'" % jsonfile)
+        log.info("Creating gigloginfo file: '%s'" % args.gitloginfo)
+        filemode = 'wb' if six.PY2 else 'w'
+        with io.open(args.gitloginfo, filemode) as jsonfile:
             json.dump(jsondata, jsonfile, sort_keys=True, indent=0)
     sys.exit(exitcode)
 except KeyboardInterrupt:

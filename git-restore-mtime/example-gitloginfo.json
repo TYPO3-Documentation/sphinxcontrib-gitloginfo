@@ -1,0 +1,19 @@
+{
+"abspath_to_gitdir": "/home/marble/Repositories/github.com/TYPO3-Documentation/sphinxcontrib-gitloginfo/.git",
+"abspath_to_project": "/home/marble/Repositories/github.com/TYPO3-Documentation/sphinxcontrib-gitloginfo/git-restore-mtime",
+"abspath_to_repo": "/home/marble/Repositories/github.com/TYPO3-Documentation/sphinxcontrib-gitloginfo",
+"filedata": {
+"git-restore-mtime": [
+1588761561,
+"2ade13a070bed3dc286e7616655ee8f9b3724e74"
+],
+"git-restore-mtime/git-restore-mtime-ORIGINAL.py": [
+1588761561,
+"2ade13a070bed3dc286e7616655ee8f9b3724e74"
+],
+"git-restore-mtime/git-restore-mtime-modified.py": [
+1588761561,
+"2ade13a070bed3dc286e7616655ee8f9b3724e74"
+]
+}
+}
