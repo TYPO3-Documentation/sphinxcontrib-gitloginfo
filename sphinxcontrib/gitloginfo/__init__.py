@@ -54,10 +54,10 @@ def _html_page_context(app, pagename, templatename, context, doctree):
     timestamp = v[0]
     commit_hash = v[1]
     if timestamp is None:
-        log.info("%s :: not found" % (pagename_as_repofile,))
+        log.info("[%s] %s :: not found" % (__name__, pagename_as_repofile))
         return
     else:
-        log.info("%s :: found" % (pagename_as_repofile,))
+        log.info("[%s] %s :: found" % (__name__, pagename_as_repofile))
     last_modified_dt = datetime.datetime.fromtimestamp(timestamp, utc_tzinfo)
     last_modified = i18n.format_date(wd['html_last_updated_fmt'],
                                      date=last_modified_dt,
@@ -115,9 +115,9 @@ def setup(app):
         wd['buildsettings_jsonfile'] = buildsettings_jsonfile
         with io.open(buildsettings_jsonfile, 'r', encoding='utf-8') as f1:
             wd['buildsettings'] = json.load(f1)
-        log.info("app.confdir/buildsettings.json :: found")
+        log.info("[%s] app.confdir/buildsettings.json :: found" % (__name__,))
     else:
-        log.info("app.confdir/buildsettings.json :: not found")
+        log.info("[%s] app.confdir/buildsettings.json :: not found" % (__name__,))
 
     gitloginfo_jsonfile = ospj(app.confdir, 'gitloginfo.json')
     if ospe(gitloginfo_jsonfile):
@@ -125,7 +125,7 @@ def setup(app):
         wd['gitloginfo_jsonfile'] = gitloginfo_jsonfile
         with io.open(gitloginfo_jsonfile, 'r', encoding='utf-8') as f1:
             wd['gitloginfo'] = json.load(f1)
-        log.info("app.confdir/gitloginfo.json :: found")
+        log.info("[%s] app.confdir/gitloginfo.json :: found" % (__name__,))
 
         wd['filedata'] = wd['gitloginfo'].get('filedata', {})
         wd['project_offset'] = (wd['gitloginfo']['abspath_to_project']
@@ -134,14 +134,14 @@ def setup(app):
         wd['t3docdir'] = wd.get('buildsettings', {}).get('t3docdir',
                                                          'Documentation')
     else:
-        log.info("app.confdir/gitloginfo.json :: not found")
+        log.info("[%s] app.confdir/gitloginfo.json :: not found" % (__name__,))
     if wd.get('filedata'):
         # only connect if there is something to do
         app.connect('html-page-context', _html_page_context)
         app.connect('config-inited', _config_inited)
-        log.info("filedata found")
+        log.info("[%s] filedata found" % (__name__,))
     else:
-        log.info("filedata not found")
+        log.info("[%s] filedata not found" % (__name__,))
 
     return {
         'version': __version__,
