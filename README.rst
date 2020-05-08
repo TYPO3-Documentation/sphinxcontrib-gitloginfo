@@ -145,7 +145,10 @@ git-restore-mtime/example-gitloginfo.json
    This is how the output file should look like.
 
 
-.. include:: USAGE.rst
+Usage
+=====
+
+See USAGE.rst
 
 
 Development

@@ -68,7 +68,7 @@ setup(
     zip_safe=False,
     #
     classifiers=[
-        '!Development Status :: 5 - Production/Stable',
+        'Development Status :: 5 - Production/Stable',
         'Framework :: Sphinx :: Extension',
         'Framework :: Sphinx',
         'Intended Audience :: Developers',
