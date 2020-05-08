@@ -115,6 +115,9 @@ def setup(app):
         wd['buildsettings_jsonfile'] = buildsettings_jsonfile
         with io.open(buildsettings_jsonfile, 'r', encoding='utf-8') as f1:
             wd['buildsettings'] = json.load(f1)
+        log.info("app.confdir/buildsettings.json :: found")
+    else:
+        log.info("app.confdir/buildsettings.json :: not found")
 
     gitloginfo_jsonfile = ospj(app.confdir, 'gitloginfo.json')
     if ospe(gitloginfo_jsonfile):
@@ -122,6 +125,7 @@ def setup(app):
         wd['gitloginfo_jsonfile'] = gitloginfo_jsonfile
         with io.open(gitloginfo_jsonfile, 'r', encoding='utf-8') as f1:
             wd['gitloginfo'] = json.load(f1)
+        log.info("app.confdir/gitloginfo.json :: found")
 
         wd['filedata'] = wd['gitloginfo'].get('filedata', {})
         wd['project_offset'] = (wd['gitloginfo']['abspath_to_project']
@@ -129,10 +133,15 @@ def setup(app):
                                 .strip('/'))
         wd['t3docdir'] = wd.get('buildsettings', {}).get('t3docdir',
                                                          'Documentation')
+    else:
+        log.info("app.confdir/gitloginfo.json :: not found")
     if wd.get('filedata'):
         # only connect if there is something to do
         app.connect('html-page-context', _html_page_context)
         app.connect('config-inited', _config_inited)
+        log.info("filedata found")
+    else:
+        log.info("filedata not found")
 
     return {
         'version': __version__,
