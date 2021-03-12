@@ -2,19 +2,22 @@
 History
 =======
 
-Next release
-============
 
-...
-
-
-v1.0.0 (2020-05-06)
+v1.1.0 (2021-03-12)
 ===================
 
-* Switch from setup.py using 'pbr' to a more standard approach
-* Create code
-* Add git-restore-mtimes
-* Create documentation
+*  Signal "parallel_write_safe" in extension metadata
+   This hopefully is correct.
+
+
+v1.0.0 (2020-05-08)
+===================
+
+*  Switch from setup.py using 'pbr' to a more standard approach
+*  Create code
+*  Add git-restore-mtimes
+*  Create documentation
+*  Publish at PyPi as 'sphinxcontrib-gitloginfo'
 
 
 v0.1.0 (2020-05-01)

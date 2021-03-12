@@ -144,6 +144,7 @@ def setup(app):
         log.info("[%s] filedata not found" % (__name__,))
 
     return {
-        'version': __version__,
         'parallel_read_safe': True,
+        'parallel_write_safe': True,
+        'version': __version__,
     }
